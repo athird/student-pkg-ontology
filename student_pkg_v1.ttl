@@ -17,7 +17,7 @@ pkgf: a owl:Ontology ;
   dct:description "Ontology generated from OU Analyse learning analytics machine-learning data model."@en .
  
 pkgf:CategoryType a owl:Class ; rdfs:label "Category type"@en .
-pkgf:PredictiveCategory a owl:Class ; rdfs:label "Predictive category"@en .
+##pkgf:PredictiveCategory a owl:Class ; rdfs:label "Predictive category"@en .
 pkgf:Learner a owl:Class ; rdfs:label "Learner"@en .
  
 pkgf:hasCategoryType a owl:ObjectProperty ;
@@ -50,13 +50,13 @@ pkgf:progression a pkgf:CategoryType ;
   skos:prefLabel "progression"@en .
  
 ### demographic / gender
-pkgf:gender a pkgf:PredictiveCategory ;
+pkgf:gender a pkgf:CategoryType ;
   skos:prefLabel "gender"@en ;
   pkgf:sourceName "gender" ;
   pkgf:hasCategoryType pkgf:demographic ;
   pkgf:realisedByProperty pkgf:has_gender .
  
-pkgf:has_gender a owl:DatatypeProperty ;
+pkgf:has_gender a owl:ObjectProperty ;
   rdfs:label "has_gender"@en ;
   rdfs:domain pkgf:Learner ;
   rdfs:range mesh:D005783 ;
@@ -65,7 +65,7 @@ pkgf:has_gender a owl:DatatypeProperty ;
 pkgf:has_gender owl:equivalentProperty foaf:gender .
  
 ### demographic / age
-pkgf:age a pkgf:PredictiveCategory ;
+pkgf:age a pkgf:CategoryType ;
   skos:prefLabel "age"@en ;
   pkgf:sourceName "age" ;
   pkgf:hasCategoryType pkgf:demographic ;
@@ -74,6 +74,7 @@ pkgf:age a pkgf:PredictiveCategory ;
 pkgf:has_age a owl:DatatypeProperty ;
   rdfs:label "has_age"@en ;
   rdfs:domain pkgf:Learner ;
+  rdfs:range xsd:integer;
   rdfs:comment "Datatype property corresponding to category 'age' (range to be specialised using additional spreadsheet columns)."@en .
 
 pkgf:has_age owl:equivalentProperty foaf:age .
