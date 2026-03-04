@@ -1,0 +1,465 @@
+
+
+ 
+@prefix pkgf: <https://w3id.org/cupa/pkg/categories#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+ 
+ 
+pkgf: a owl:Ontology ;
+  rdfs:label "CUPA PKG – Learning Personalisation Category Ontology (from spreadsheet)"@en ;
+  dct:created "2026-01-30"^^xsd:date ;
+  dct:description "Ontology generated from OU Analyse learning analytics machine-learning data model."@en .
+ 
+pkgf:CategoryType a owl:Class ; rdfs:label "Category type"@en .
+pkgf:PredictiveCategory a owl:Class ; rdfs:label "Predictive category"@en .
+pkgf:Learner a owl:Class ; rdfs:label "Learner"@en .
+ 
+pkgf:hasCategoryType a owl:ObjectProperty ;
+  rdfs:label "has category type"@en ;
+  rdfs:domain pkgf:PredictiveCategory ;
+  rdfs:range  pkgf:CategoryType .
+ 
+pkgf:realisedByProperty a owl:AnnotationProperty ;
+  rdfs:label "realised by property"@en .
+ 
+pkgf:sourceName a owl:AnnotationProperty ;
+  rdfs:label "source name"@en .
+ 
+pkgf:Recommender a pkgf:CategoryType ;
+  skos:prefLabel "Recommender"@en .
+ 
+pkgf:VLE a pkgf:CategoryType ;
+  skos:prefLabel "VLE"@en .
+ 
+pkgf:assessments a pkgf:CategoryType ;
+  skos:prefLabel "assessments"@en .
+ 
+pkgf:demographic a pkgf:CategoryType ;
+  skos:prefLabel "demographic"@en .
+ 
+pkgf:finance a pkgf:CategoryType ;
+  skos:prefLabel "finance"@en .
+ 
+pkgf:progression a pkgf:CategoryType ;
+  skos:prefLabel "progression"@en .
+ 
+### demographic / gender
+pkgf:gender a pkgf:PredictiveCategory ;
+  skos:prefLabel "gender"@en ;
+  pkgf:sourceName "gender" ;
+  pkgf:hasCategoryType pkgf:demographic ;
+  pkgf:realisedByProperty pkgf:has_gender .
+ 
+pkgf:has_gender a owl:DatatypeProperty ;
+  rdfs:label "has_gender"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'gender' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+### demographic / age
+pkgf:age a pkgf:PredictiveCategory ;
+  skos:prefLabel "age"@en ;
+  pkgf:sourceName "age" ;
+  pkgf:hasCategoryType pkgf:demographic ;
+  pkgf:realisedByProperty pkgf:has_age .
+ 
+pkgf:has_age a owl:DatatypeProperty ;
+  rdfs:label "has_age"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'age' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### demographic / qualification
+pkgf:qualification a pkgf:PredictiveCategory ;
+  skos:prefLabel "qualification"@en ;
+  pkgf:sourceName "qualification" ;
+  pkgf:hasCategoryType pkgf:demographic ;
+  pkgf:realisedByProperty pkgf:has_qualification .
+ 
+pkgf:has_qualification a owl:DatatypeProperty ;
+  rdfs:label "has_qualification"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'qualification' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### demographic / occupation
+pkgf:occupation a pkgf:PredictiveCategory ;
+  skos:prefLabel "occupation"@en ;
+  pkgf:sourceName "occupation" ;
+  pkgf:hasCategoryType pkgf:demographic ;
+  pkgf:realisedByProperty pkgf:has_occupation .
+ 
+pkgf:has_occupation a owl:DatatypeProperty ;
+  rdfs:label "has_occupation"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'occupation' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### demographic / number_of_previous_attempts
+pkgf:number_of_previous_attempts a pkgf:PredictiveCategory ;
+  skos:prefLabel "number_of_previous_attempts"@en ;
+  pkgf:sourceName "number_of_previous_attempts" ;
+  pkgf:hasCategoryType pkgf:demographic ;
+  pkgf:realisedByProperty pkgf:has_number_of_previous_attempts .
+ 
+pkgf:has_number_of_previous_attempts a owl:DatatypeProperty ;
+  rdfs:label "has_number_of_previous_attempts"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'number_of_previous_attempts' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### demographic / new_or_continuing_student
+pkgf:new_or_continuing_student a pkgf:PredictiveCategory ;
+  skos:prefLabel "new_or_continuing_student"@en ;
+  pkgf:sourceName "new_or_continuing_student" ;
+  pkgf:hasCategoryType pkgf:demographic ;
+  pkgf:realisedByProperty pkgf:has_new_or_continuing_student .
+ 
+pkgf:has_new_or_continuing_student a owl:DatatypeProperty ;
+  rdfs:label "has_new_or_continuing_student"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'new_or_continuing_student' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### demographic / disability
+pkgf:disability a pkgf:PredictiveCategory ;
+  skos:prefLabel "disability"@en ;
+  pkgf:sourceName "disability" ;
+  pkgf:hasCategoryType pkgf:demographic ;
+  pkgf:realisedByProperty pkgf:has_disability .
+ 
+pkgf:has_disability a owl:DatatypeProperty ;
+  rdfs:label "has_disability"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'disability' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### demographic / imd_band
+pkgf:imd_band a pkgf:PredictiveCategory ;
+  skos:prefLabel "imd_band"@en ;
+  pkgf:sourceName "imd_band" ;
+  pkgf:hasCategoryType pkgf:demographic ;
+  pkgf:realisedByProperty pkgf:has_imd_band .
+ 
+pkgf:has_imd_band a owl:DatatypeProperty ;
+  rdfs:label "has_imd_band"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'imd_band' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### demographic / country_category
+pkgf:country_category a pkgf:PredictiveCategory ;
+  skos:prefLabel "country_category"@en ;
+  pkgf:sourceName "country_category" ;
+  pkgf:hasCategoryType pkgf:demographic ;
+  pkgf:realisedByProperty pkgf:has_country_category .
+ 
+pkgf:has_country_category a owl:DatatypeProperty ;
+  rdfs:label "has_country_category"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'country_category' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### demographic / max_days_since_last_active
+pkgf:max_days_since_last_active a pkgf:PredictiveCategory ;
+  skos:prefLabel "max_days_since_last_active"@en ;
+  pkgf:sourceName "max_days_since_last_active" ;
+  pkgf:hasCategoryType pkgf:demographic ;
+  pkgf:realisedByProperty pkgf:has_max_days_since_last_active .
+ 
+pkgf:has_max_days_since_last_active a owl:DatatypeProperty ;
+  rdfs:label "has_max_days_since_last_active"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'max_days_since_last_active' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### progression / previous_credits_failed
+pkgf:previous_credits_failed a pkgf:PredictiveCategory ;
+  skos:prefLabel "previous_credits_failed"@en ;
+  pkgf:sourceName "previous_credits_failed" ;
+  pkgf:hasCategoryType pkgf:progression ;
+  pkgf:realisedByProperty pkgf:has_previous_credits_failed .
+ 
+pkgf:has_previous_credits_failed a owl:DatatypeProperty ;
+  rdfs:label "has_previous_credits_failed"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'previous_credits_failed' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### progression / previous_credits_passed
+pkgf:previous_credits_passed a pkgf:PredictiveCategory ;
+  skos:prefLabel "previous_credits_passed"@en ;
+  pkgf:sourceName "previous_credits_passed" ;
+  pkgf:hasCategoryType pkgf:progression ;
+  pkgf:realisedByProperty pkgf:has_previous_credits_passed .
+ 
+pkgf:has_previous_credits_passed a owl:DatatypeProperty ;
+  rdfs:label "has_previous_credits_passed"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'previous_credits_passed' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### progression / other_credits
+pkgf:other_credits a pkgf:PredictiveCategory ;
+  skos:prefLabel "other_credits"@en ;
+  pkgf:sourceName "other_credits" ;
+  pkgf:hasCategoryType pkgf:progression ;
+  pkgf:realisedByProperty pkgf:has_other_credits .
+ 
+pkgf:has_other_credits a owl:DatatypeProperty ;
+  rdfs:label "has_other_credits"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'other_credits' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### progression / previous_module_failed
+pkgf:previous_module_failed a pkgf:PredictiveCategory ;
+  skos:prefLabel "previous_module_failed"@en ;
+  pkgf:sourceName "previous_module_failed" ;
+  pkgf:hasCategoryType pkgf:progression ;
+  pkgf:realisedByProperty pkgf:has_previous_module_failed .
+ 
+pkgf:has_previous_module_failed a owl:DatatypeProperty ;
+  rdfs:label "has_previous_module_failed"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'previous_module_failed' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### progression / previous_module_passed
+pkgf:previous_module_passed a pkgf:PredictiveCategory ;
+  skos:prefLabel "previous_module_passed"@en ;
+  pkgf:sourceName "previous_module_passed" ;
+  pkgf:hasCategoryType pkgf:progression ;
+  pkgf:realisedByProperty pkgf:has_previous_module_passed .
+ 
+pkgf:has_previous_module_passed a owl:DatatypeProperty ;
+  rdfs:label "has_previous_module_passed"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'previous_module_passed' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### progression / is_linked_qualification
+pkgf:is_linked_qualification a pkgf:PredictiveCategory ;
+  skos:prefLabel "is_linked_qualification"@en ;
+  pkgf:sourceName "is_linked_qualification" ;
+  pkgf:hasCategoryType pkgf:progression ;
+  pkgf:realisedByProperty pkgf:has_is_linked_qualification .
+ 
+pkgf:has_is_linked_qualification a owl:DatatypeProperty ;
+  rdfs:label "has_is_linked_qualification"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'is_linked_qualification' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### finance / has_study_loan
+pkgf:has_study_loan a pkgf:PredictiveCategory ;
+  skos:prefLabel "has_study_loan"@en ;
+  pkgf:sourceName "has_study_loan" ;
+  pkgf:hasCategoryType pkgf:finance ;
+  pkgf:realisedByProperty pkgf:has_has_study_loan .
+ 
+pkgf:has_has_study_loan a owl:DatatypeProperty ;
+  rdfs:label "has_has_study_loan"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'has_study_loan' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### finance / slc_loan_status_stat
+pkgf:slc_loan_status_stat a pkgf:PredictiveCategory ;
+  skos:prefLabel "slc_loan_status_stat"@en ;
+  pkgf:sourceName "slc_loan_status_stat" ;
+  pkgf:hasCategoryType pkgf:finance ;
+  pkgf:realisedByProperty pkgf:has_slc_loan_status_stat .
+ 
+pkgf:has_slc_loan_status_stat a owl:DatatypeProperty ;
+  rdfs:label "has_slc_loan_status_stat"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'slc_loan_status_stat' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### assessments / TMA_X_score
+pkgf:TMA_X_score a pkgf:PredictiveCategory ;
+  skos:prefLabel "TMA_X_score"@en ;
+  pkgf:sourceName "TMA_X_score" ;
+  pkgf:hasCategoryType pkgf:assessments ;
+  pkgf:realisedByProperty pkgf:has_TMA_X_score .
+ 
+pkgf:has_TMA_X_score a owl:DatatypeProperty ;
+  rdfs:label "has_TMA_X_score"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'TMA_X_score' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### assessments / TMA_X_submitted
+pkgf:TMA_X_submitted a pkgf:PredictiveCategory ;
+  skos:prefLabel "TMA_X_submitted"@en ;
+  pkgf:sourceName "TMA_X_submitted" ;
+  pkgf:hasCategoryType pkgf:assessments ;
+  pkgf:realisedByProperty pkgf:has_TMA_X_submitted .
+ 
+pkgf:has_TMA_X_submitted a owl:DatatypeProperty ;
+  rdfs:label "has_TMA_X_submitted"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'TMA_X_submitted' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### assessments / TMA_X_submitted_days_to_cutoff
+pkgf:TMA_X_submitted_days_to_cutoff a pkgf:PredictiveCategory ;
+  skos:prefLabel "TMA_X_submitted_days_to_cutoff"@en ;
+  pkgf:sourceName "TMA_X_submitted_days_to_cutoff" ;
+  pkgf:hasCategoryType pkgf:assessments ;
+  pkgf:realisedByProperty pkgf:has_TMA_X_submitted_days_to_cutoff .
+ 
+pkgf:has_TMA_X_submitted_days_to_cutoff a owl:DatatypeProperty ;
+  rdfs:label "has_TMA_X_submitted_days_to_cutoff"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'TMA_X_submitted_days_to_cutoff' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### assessments / TMA_X_extended
+pkgf:TMA_X_extended a pkgf:PredictiveCategory ;
+  skos:prefLabel "TMA_X_extended"@en ;
+  pkgf:sourceName "TMA_X_extended" ;
+  pkgf:hasCategoryType pkgf:assessments ;
+  pkgf:realisedByProperty pkgf:has_TMA_X_extended .
+ 
+pkgf:has_TMA_X_extended a owl:DatatypeProperty ;
+  rdfs:label "has_TMA_X_extended"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'TMA_X_extended' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### VLE / summary_activity_before_module_start
+pkgf:summary_activity_before_module_start a pkgf:PredictiveCategory ;
+  skos:prefLabel "summary_activity_before_module_start"@en ;
+  pkgf:sourceName "summary_activity_before_module_start" ;
+  pkgf:hasCategoryType pkgf:VLE ;
+  pkgf:realisedByProperty pkgf:has_summary_activity_before_module_start .
+ 
+pkgf:has_summary_activity_before_module_start a owl:DatatypeProperty ;
+  rdfs:label "has_summary_activity_before_module_start"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'summary_activity_before_module_start' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### VLE / summary_activity_before_last_TMA
+pkgf:summary_activity_before_last_TMA a pkgf:PredictiveCategory ;
+  skos:prefLabel "summary_activity_before_last_TMA"@en ;
+  pkgf:sourceName "summary_activity_before_last_TMA" ;
+  pkgf:hasCategoryType pkgf:VLE ;
+  pkgf:realisedByProperty pkgf:has_summary_activity_before_last_TMA .
+ 
+pkgf:has_summary_activity_before_last_TMA a owl:DatatypeProperty ;
+  rdfs:label "has_summary_activity_before_last_TMA"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'summary_activity_before_last_TMA' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### VLE / summary_activity_X_weeks_prior_to_submission_date
+pkgf:summary_activity_X_weeks_prior_to_submission_date a pkgf:PredictiveCategory ;
+  skos:prefLabel "summary_activity_X_weeks_prior_to_submission_date"@en ;
+  pkgf:sourceName "summary_activity_X_weeks_prior_to_submission_date" ;
+  pkgf:hasCategoryType pkgf:VLE ;
+  pkgf:realisedByProperty pkgf:has_summary_activity_X_weeks_prior_to_submission_date .
+ 
+pkgf:has_summary_activity_X_weeks_prior_to_submission_date a owl:DatatypeProperty ;
+  rdfs:label "has_summary_activity_X_weeks_prior_to_submission_date"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'summary_activity_X_weeks_prior_to_submission_date' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### VLE / site_type_X_activity_before_module_start
+pkgf:site_type_X_activity_before_module_start a pkgf:PredictiveCategory ;
+  skos:prefLabel "site_type_X_activity_before_module_start"@en ;
+  pkgf:sourceName "site_type_X_activity_before_module_start" ;
+  pkgf:hasCategoryType pkgf:VLE ;
+  pkgf:realisedByProperty pkgf:has_site_type_X_activity_before_module_start .
+ 
+pkgf:has_site_type_X_activity_before_module_start a owl:DatatypeProperty ;
+  rdfs:label "has_site_type_X_activity_before_module_start"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'site_type_X_activity_before_module_start' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### VLE / site_type_X_activity_before_last_TMA
+pkgf:site_type_X_activity_before_last_TMA a pkgf:PredictiveCategory ;
+  skos:prefLabel "site_type_X_activity_before_last_TMA"@en ;
+  pkgf:sourceName "site_type_X_activity_before_last_TMA" ;
+  pkgf:hasCategoryType pkgf:VLE ;
+  pkgf:realisedByProperty pkgf:has_site_type_X_activity_before_last_TMA .
+ 
+pkgf:has_site_type_X_activity_before_last_TMA a owl:DatatypeProperty ;
+  rdfs:label "has_site_type_X_activity_before_last_TMA"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'site_type_X_activity_before_last_TMA' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### VLE / site_type_X_activity_Y_weeks_prior_to_submission_date
+pkgf:site_type_X_activity_Y_weeks_prior_to_submission_date a pkgf:PredictiveCategory ;
+  skos:prefLabel "site_type_X_activity_Y_weeks_prior_to_submission_date"@en ;
+  pkgf:sourceName "site_type_X_activity_Y_weeks_prior_to_submission_date" ;
+  pkgf:hasCategoryType pkgf:VLE ;
+  pkgf:realisedByProperty pkgf:has_site_type_X_activity_Y_weeks_prior_to_submission_date .
+ 
+pkgf:has_site_type_X_activity_Y_weeks_prior_to_submission_date a owl:DatatypeProperty ;
+  rdfs:label "has_site_type_X_activity_Y_weeks_prior_to_submission_date"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'site_type_X_activity_Y_weeks_prior_to_submission_date' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### VLE / site_name_X_cumulative_rawClicks
+pkgf:site_name_X_cumulative_rawClicks a pkgf:PredictiveCategory ;
+  skos:prefLabel "site_name_X_cumulative_rawClicks"@en ;
+  pkgf:sourceName "site_name_X_cumulative_rawClicks" ;
+  pkgf:hasCategoryType pkgf:VLE ;
+  pkgf:realisedByProperty pkgf:has_site_name_X_cumulative_rawClicks .
+ 
+pkgf:has_site_name_X_cumulative_rawClicks a owl:DatatypeProperty ;
+  rdfs:label "has_site_name_X_cumulative_rawClicks"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'site_name_X_cumulative_rawClicks' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### VLE / site_name_X_rawClicks_Y_weeks_prior_to_submission_date
+pkgf:site_name_X_rawClicks_Y_weeks_prior_to_submission_date a pkgf:PredictiveCategory ;
+  skos:prefLabel "site_name_X_rawClicks_Y_weeks_prior_to_submission_date"@en ;
+  pkgf:sourceName "site_name_X_rawClicks_Y_weeks_prior_to_submission_date" ;
+  pkgf:hasCategoryType pkgf:VLE ;
+  pkgf:realisedByProperty pkgf:has_site_name_X_rawClicks_Y_weeks_prior_to_submission_date .
+ 
+pkgf:has_site_name_X_rawClicks_Y_weeks_prior_to_submission_date a owl:DatatypeProperty ;
+  rdfs:label "has_site_name_X_rawClicks_Y_weeks_prior_to_submission_date"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'site_name_X_rawClicks_Y_weeks_prior_to_submission_date' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### Recommender / site_type_X_recScoreCum
+pkgf:site_type_X_recScoreCum a pkgf:PredictiveCategory ;
+  skos:prefLabel "site_type_X_recScoreCum"@en ;
+  pkgf:sourceName "site_type_X_recScoreCum" ;
+  pkgf:hasCategoryType pkgf:Recommender ;
+  pkgf:realisedByProperty pkgf:has_site_type_X_recScoreCum .
+ 
+pkgf:has_site_type_X_recScoreCum a owl:DatatypeProperty ;
+  rdfs:label "has_site_type_X_recScoreCum"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'site_type_X_recScoreCum' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
+### Recommender / site_type_X_recScore_Y_weeks_prior_to_submission_date
+pkgf:site_type_X_recScore_Y_weeks_prior_to_submission_date a pkgf:PredictiveCategory ;
+  skos:prefLabel "site_type_X_recScore_Y_weeks_prior_to_submission_date"@en ;
+  pkgf:sourceName "site_type_X_recScore_Y_weeks_prior_to_submission_date" ;
+  pkgf:hasCategoryType pkgf:Recommender ;
+  pkgf:realisedByProperty pkgf:has_site_type_X_recScore_Y_weeks_prior_to_submission_date .
+ 
+pkgf:has_site_type_X_recScore_Y_weeks_prior_to_submission_date a owl:DatatypeProperty ;
+  rdfs:label "has_site_type_X_recScore_Y_weeks_prior_to_submission_date"@en ;
+  rdfs:domain pkgf:Learner ;
+  rdfs:comment "Datatype property corresponding to category 'site_type_X_recScore_Y_weeks_prior_to_submission_date' (range to be specialised using additional spreadsheet columns)."@en .
+ 
+ 
