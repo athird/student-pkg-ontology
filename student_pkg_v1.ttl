@@ -8,7 +8,8 @@
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dct:  <http://purl.org/dc/terms/> .
- 
+@prefix mesh: <http://purl.bioontology.org/ontology/MESH/> . 
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
  
 pkgf: a owl:Ontology ;
   rdfs:label "CUPA PKG – Learning Personalisation Category Ontology (from spreadsheet)"@en ;
@@ -58,7 +59,10 @@ pkgf:gender a pkgf:PredictiveCategory ;
 pkgf:has_gender a owl:DatatypeProperty ;
   rdfs:label "has_gender"@en ;
   rdfs:domain pkgf:Learner ;
+  rdfs:range mesh:D005783 ;
   rdfs:comment "Datatype property corresponding to category 'gender' (range to be specialised using additional spreadsheet columns)."@en .
+
+pkgf:has_gender owl:equivalentProperty foaf:gender .
  
 ### demographic / age
 pkgf:age a pkgf:PredictiveCategory ;
@@ -71,6 +75,8 @@ pkgf:has_age a owl:DatatypeProperty ;
   rdfs:label "has_age"@en ;
   rdfs:domain pkgf:Learner ;
   rdfs:comment "Datatype property corresponding to category 'age' (range to be specialised using additional spreadsheet columns)."@en .
+
+pkgf:has_age owl:equivalentProperty foaf:age .
  
  
 ### demographic / qualification
